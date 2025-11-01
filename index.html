@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adi Lakshmi Puja</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+   
+    .gold-text { background: linear-gradient(90deg,#f59e0b,#d97706); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .glass { background: rgba(255,255,255,.85); backdrop-filter: blur(12px); }
+    .soft-border { border: 1px solid rgba(250,204,21,.35); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeSlide { from {opacity:0; transform: translateY(10px)} to {opacity:1; transform: translateY(0)} }
+    .fadeSlide { animation: fadeSlide .5s ease; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-yellow-100 text-gray-800">
+  
+  <div class="pointer-events-none fixed -top-24 -left-24 w-72 h-72 bg-yellow-300/40 blur-3xl rounded-full"></div>
+  <div class="pointer-events-none fixed -bottom-24 -right-24 w-72 h-72 bg-orange-300/40 blur-3xl rounded-full"></div>
+
+  
+  <nav class="max-w-7xl mx-auto px-6 pt-6 text-sm text-gray-600 flex items-center gap-2">
+    <a class="font-medium hover:text-yellow-700 transition" href="#">Home</a>
+    <span>›</span>
+    <a class="font-medium hover:text-yellow-700 transition" href="#">Puja</a>
+    <span>›</span>
+    <a class="font-medium hover:text-yellow-700 transition" href="#">Yagya Puja</a>
+    <span>›</span>
+    <span class="font-semibold text-red-600">Adi Lakshmi Puja</span>
+  </nav>
+
+  <!-- Main Section -->
+  <section class="max-w-7xl mx-auto p-6 md:p-8 grid lg:grid-cols-2 gap-8">
+    
+    <div class="space-y-4">
+      <div id="mainDisplay" class="relative rounded-2xl  shimmer soft-border w-full h-[500px] aspect-[6/5]  overflow-hidden group">
+        <!-- default main as image -->
+        <img id="mainImage" src="images/main iamge.jpg" alt="Product Image" class="w-full h-full object-cover transition duration-700 group-hover:scale-[1.03] flex space-x-3" data-aos="zoom-in"/>
+      </div>
+
+      <!-- Thumbnails row (supports image + video) -->
+      <div id="thumbRow" class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 gap-3 flex space-x-3" data-aos="zoom-in">
+        <img src="images/main iamge.jpg" class="thumb w-full aspect-square object-cover rounded-xl cursor-pointer border-2 border-transparent hover:border-yellow-600 transition"/>
+        <img src="images/m2.jpg" class="thumb w-full aspect-square object-cover rounded-xl cursor-pointer border-2 border-transparent hover:border-yellow-600 transition"/>
+        <video src="images/video1.mp4" class="thumb w-full aspect-square object-cover rounded-xl cursor-pointer border-2 border-transparent hover:border-yellow-600 transition" muted></video>
+        <img src="images/bagagalmukhi yantra.webp" class="thumb w-full aspect-square object-cover rounded-xl cursor-pointer border-2 border-transparent hover:border-yellow-600 transition"/>
+        <img src="images/B-Y2.webp" class="thumb w-full aspect-square object-cover rounded-xl cursor-pointer border-2 border-transparent hover:border-yellow-600 transition"/>
+      </div>
+    </div>
+
+    <!-- Product Details Card -->
+    <div class="glass soft-border rounded-2xl w-full h-[500px]  p-6 md:p-8 fadeSlide">
+      <div class="flex items-start justify-between gap-4 glass rounded-2xl p-6" data-aos="fade-left">
+        <div>
+          <p class="uppercase tracking-wide text-gray-500 text-xs">Yagya Puja</p>
+          <h1 class="text-3xl md:text-4xl font-extrabold mt-1 gold-text text-3xl font-extrabold gold-text mb-6" data-aos="fade-down">Adi Lakshmi Puja</h1>
+          <div class="flex items-center gap-3 mt-2">
+            <div class="flex items-center text-yellow-600">★★★★★</div>
+            <span class="text-xs text-gray-500">(150 reviews)</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="favBtn" class="w-11 h-11 border rounded-full flex items-center justify-center hover:bg-red-50 hover:text-red-600 transition">❤️</button>
+          <button id="shareBtn" class="w-11 h-11 border rounded-full flex items-center justify-center hover:bg-yellow-50 hover:text-yellow-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M18 8a3 3 0 1 0-2.82-4H14a2 2 0 0 0-2 2v7.23l-2.4-1.2a3 3 0 1 0-.9 1.79l3.74 1.87A2 2 0 0 0 15 15V6h.18A3 3 0 0 0 18 8Z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Offer countdown -->
+      <div class="mt-4 bg-gradient-to-r from-yellow-100 to-amber-100 text-yellow-800 px-4 py-3 rounded-xl shadow flex items-center justify-between gap-3">
+        <div class="font-semibold">Booking closes in: 01/11/25 – 20/11/25</div>
+        <div id="countdown" class="text-xs font-bold"></div>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="mt-4 grid grid-cols-3 gap-3 text-center text-xs">
+        <div class="bg-white rounded-xl border p-3 hover:scale-105 hover:shadow-md hover:bg-yellow-500">✅ Certified Priests</div>
+        <div class="bg-white rounded-xl border p-3 hover:scale-105 hover:shadow-md hover:bg-yellow-500">🕉️ Vedic Rituals</div>
+        <div class="bg-white rounded-xl border p-3 hover:scale-105 hover:shadow-md hover:bg-yellow-500">🚚 Prasad Delivery</div>
+      </div>
+
+     
+      <a href="#participate-section"> <button id="bookBtn" class="mt-6 w-full bg-orange-500 hover:bg-orange-700 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-amber-300/40 transition transform active:scale-[.98] hover:scale-105 hover:shadow-mdc hover:bg-orange-700">Participate in Puja</button>
+      </a>
+    </div>
+  </section>
+
+   <!-- Section Title -->
+   <h3 id="participate-section" class=" text-4xl font-extrabold gold-text text-center mt-9">4 Ways to Participate</h3>
+
+   <!-- Cards Container -->
+   <div class=" mt-8 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-6">
+ 
+     <!-- Card 1 -->
+     <div class="max-w-sm mx-auto">
+      <div class="border-2 border-orange-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition bg-white">
+        <div class="bg-gradient-to-r from-red-600 to-orange-500 text-white p-4 text-left">
+          <h3 class="text-lg font-semibold">Individual Lakshmi Puja</h3>
+          <p class="text-xl font-bold mt-1">₹851</p>
+          <img src="one_family.avif" alt="Individual" class="rounded-lg mt-3">
+        </div>
+        <div class="p-5 space-y-3 text-gray-700 text-sm">
+          <p>🔸 Link for Recorded video of Lakshmi Puja</p>
+          <p>🔸 Individual’s Name and Gotra will be chanted during the Puja Sankalp</p>
+          <p>🔸 You can choose to offer Vastra & Bhog to Lakshmi Mata and the video of the Offerings will be shared with you</p>
+          <p>🔸 Prasad will be shipped to your home</p>
+        </div>
+        <div class="p-4 text-center">
+          <button id="openModalBtn" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold w-full py-2 rounded-lg transition">PARTICIPATE</button>
+        </div>
+      </div>
+    </div>
+  
+    <div id="formModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 hidden">
+  
+      <div class="relative bg-white rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+  
+        <button id="closeModalBtn" class="absolute top-3 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+  
+        <div class="w-full flex items-center justify-center border-b bg-white shadow-sm sticky top-0 z-50 rounded-t-lg">
+          <div class="flex items-center justify-center space-x-6 p-3 text-sm md:text-base">
+            <div class="flex items-center space-x-2 text-orange-500 font-semibold">
+              <span class="w-6 h-6 flex items-center justify-center border-2 border-orange-500 rounded-full">1</span>
+              <span>Add Details</span>
+            </div>
+          </div>
+        </div>
+  
+        <form class="max-w-3xl mx-auto bg-white rounded-xl p-6 md:p-10 space-y-6">
+  
+          <div>
+            <label class="font-semibold text-lg flex items-center gap-2">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-5 h-5" alt="">
+              WhatsApp Mobile Number
+            </label>
+            <div class="flex items-center mt-2 border rounded-lg overflow-hidden">
+              <span class="px-3 py-2 bg-gray-100 text-gray-600">+91</span>
+              <input type="tel" placeholder="Enter WhatsApp Number" class="flex-1 px-3 py-2 outline-none" required>
+            </div>
+          </div>
+  
+          <div>
+            <h3 class="font-semibold text-lg mb-2">Add Participants</h3>
+            <div class="space-y-3">
+              <input type="text" placeholder="Participant 1 *" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400" required>
+              <input type="text" placeholder="Participant 2" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400">
+              <input type="text" placeholder="Participant 3" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400">
+              <input type="text" placeholder="Participant 4" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400">
+            </div>
+          </div>
+  
+          <div>
+            <h3 class="font-semibold text-lg mb-2">Add Gotra</h3>
+            <input type="text" id="gotraInput" placeholder="Enter Gotra" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400">
+            <label class="flex items-center gap-2 mt-2 text-sm text-gray-700 cursor-pointer">
+              <input type="checkbox" id="unknownGotra" class="w-4 h-4">
+              I don’t know my Gotra
+            </label>
+          </div>
+  
+          <div>
+            <h3 class="font-semibold text-lg mb-2">Do you want the Prasad to be Delivered?</h3>
+            <div class="flex items-center justify-between border rounded-lg px-4 py-3">
+              <p class="text-sm text-gray-600">Note: Prasad will be delivered within 10 days of the puja/offering.</p>
+              <label class="inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" id="prasadToggle">
+                <div class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-orange-500 relative transition-all duration-300">
+                  <span class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-all peer-checked:translate-x-5"></span>
+                </div>
+              </label>
+            </div>
+  
+            <div id="prasadFields" class="hidden mt-4 space-y-4">
+  
+              <div>
+                <h4 class="font-medium text-gray-700 mb-2">Select Prasad Type (Only One)</h4>
+                <div class="space-y-2">
+                  <label class="flex items-center gap-3 border rounded-lg px-3 py-2 cursor-pointer hover:bg-orange-50">
+                    <input type="radio" name="prasadType" value="rudraksh" class="w-4 h-4 text-orange-500">
+                    <span class="flex-1">Rudraksh – ₹199</span>
+                  </label>
+                  <label class="flex items-center gap-3 border rounded-lg px-3 py-2 cursor-pointer hover:bg-orange-50">
+                    <input type="radio" name="prasadType" value="bracelet" class="w-4 h-4 text-orange-500">
+                    <span class="flex-1">Bracelet – ₹299</span>
+                  </label>
+                  <label class="flex items-center gap-3 border rounded-lg px-3 py-2 cursor-pointer hover:bg-orange-50">
+                    <input type="radio" name="prasadType" value="full" class="w-4 h-4 text-orange-500">
+                    <span class="flex-1">Full Packet (Rudraksh + Bracelet) – ₹449</span>
+                  </label>
+                </div>
+              </div>
+  
+              <div class="space-y-3">
+                <input type="text" placeholder="Full Name" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400">
+                <input type="text" placeholder="Full Address" class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <input type="text" placeholder="City" class="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400">
+                  <input type="text" placeholder="Pincode" class="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-400">
+                </div>
+              </div>
+  
+            </div>
+          </div>
+  
+          <div>
+            <button type="button" id="nextBtn" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition-all">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  
+    <script>
+      
+      const gotraInput = document.getElementById('gotraInput');
+      const unknownGotra = document.getElementById('unknownGotra');
+      unknownGotra.addEventListener('change', () => {
+        if (unknownGotra.checked) {
+          gotraInput.value = "Kashyap";
+          gotraInput.disabled = true;
+          gotraInput.classList.add("bg-gray-100");
+        } else {
+          gotraInput.value = "";
+          gotraInput.disabled = false;
+          gotraInput.classList.remove("bg-gray-100");
+        }
+      });
+  
+      
+      const prasadToggle = document.getElementById('prasadToggle');
+      const prasadFields = document.getElementById('prasadFields');
+      prasadToggle.addEventListener('change', () => {
+        if (prasadToggle.checked) {
+          prasadFields.classList.remove('hidden');
+        } else {
+          prasadFields.classList.add('hidden');
+        }
+      });
+  
+      
+      document.getElementById('nextBtn').addEventListener('click', () => {
+        alert('Proceeding to Review Cart...');
+      });
+  
+  
+      const openModalBtn = document.getElementById('openModalBtn');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const formModal = document.getElementById('formModal');
+  
+    
+      openModalBtn.addEventListener('click', () => {
+        formModal.classList.remove('hidden');
+      });
+  
+      
+      closeModalBtn.addEventListener('click', () => {
+        formModal.classList.add('hidden');
+      });
+      
+      
+      formModal.addEventListener('click', (event) => {
+        
+        if (event.target === formModal) {
+          formModal.classList.add('hidden');
+        }
+      });
+  
+    </script>
+    
+ 
+     <!-- Card 2 -->
+     <div class="border-2 border-orange-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition bg-white">
+       <div class="bg-gradient-to-r from-pink-600 to-orange-500 text-white p-4 text-left">
+         <h3 class="text-lg font-semibold">Couple Lakshmi Puja</h3>
+         <p class="text-xl font-bold mt-1">₹1251</p>
+         <img src="two_family.avif" alt="Couple" class="rounded-lg mt-3">
+       </div>
+       <div class="p-5 space-y-3 text-gray-700 text-sm">
+         <p>🔸 Link for Recorded video of Lakshmi Puja</p>
+         <p>🔸 2 Devotee Name and Gotra will be chanted during the Puja Sankalp</p>
+         <p>🔸 You can choose to offer Vastra & Bhog to Lakshmi Mata and the video of the Offerings will be shared with you</p>
+         <p>🔸 Prasad will be shipped to your home</p>
+       </div>
+       <div class="p-4 text-center">
+         <button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold w-full py-2 rounded-lg transition">PARTICIPATE</button>
+       </div>
+     </div>
+ 
+     <!-- Card 3 -->
+     <div class="border-2 border-orange-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition bg-white">
+       <div class="bg-gradient-to-r from-orange-600 to-red-400 text-white p-4 text-left">
+         <h3 class="text-lg font-semibold">Family Lakshmi Puja</h3>
+         <p class="text-xl font-bold mt-1">₹1451</p>
+         <img src="four_family.avif" alt="Family" class="rounded-lg mt-3">
+       </div>
+       <div class="p-5 space-y-3 text-gray-700 text-sm">
+         <p>🔸 Link for Recorded video of Lakshmi Puja</p>
+         <p>🔸 4 Devotee Name and Gotra will be chanted during the Puja Sankalp</p>
+         <p>🔸 You can choose to offer Vastra & Bhog to Lakshmi Mata and the video of the Offerings will be shared with you</p>
+         <p>🔸 Prasad will be shipped to your home</p>
+       </div>
+       <div class="p-4 text-center">
+         <button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold w-full py-2 rounded-lg transition">PARTICIPATE</button>
+       </div>
+     </div>
+
+     
+ 
+     <!-- Card 4 -->
+     <div class="border-2 border-orange-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition bg-white">
+      <div class="bg-gradient-to-r from-orange-600 to-red-400 text-white p-4 text-left">
+        <h3 class="text-lg font-semibold">Family Lakshmi Puja</h3>
+        <p class="text-xl font-bold mt-1">₹1451</p>
+        <img src="six_family.avif" alt="Family" class="rounded-lg mt-3">
+      </div>
+       <div class="p-5 space-y-3 text-gray-700 text-sm">
+         <p>🔸 Link for Recorded video of Lakshmi Puja</p>
+         <p>🔸 6 Devotee Name and Gotra will be chanted during the Puja Sankalp</p>
+         <p>🔸 You can choose to offer Vastra & Bhog to Lakshmi Mata and the video of the Offerings will be shared with you</p>
+         <p>🔸 Prasad will be shipped to your home</p>
+       </div>
+       <div class="p-4 text-center">
+         <button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold w-full py-2 rounded-lg transition">PARTICIPATE</button>
+       </div>
+     </div>
+ 
+   </div>
+
+  <!-- Info Tabs (About/Benefits/FAQ/Shipping/Reviews) -->
+  <section class=" mt-6 max-w-7xl mx-auto px-6 md:px-8 pb-16">
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <div class="md:col-span-3 glass soft-border rounded-2xl p-6 glass rounded-2xl p-6" data-aos="fade-left">
+        <h3 class="text-3xl font-extrabold gold-text text-center mb-3">About the Puja</h3>
+        <h5 class="text-lg font-semibold">Adi Lakshmi Puja </h5>
+        <p class="text-sm leading-7">Adi Lakshmi, also known as the Primordial Lakshmi, is a form of Goddess Lakshmi, the Hindu deity of wealth, prosperity, and well-being. Adi Lakshmi represents the primal energy of creation and abundance, emphasizing spiritual and material prosperity. Performing the Adi Lakshmi Puja invokes her blessings for wealth, peace, happiness, and spiritual growth. It is particularly significant during festivals like Diwali or Varalakshmi Vratham, as well as on auspicious days such as Fridays and Purnima (full moon days).</p>
+        <h5 class="text-lg font-semibold">Significance of Adi Lakshmi Puja</h5>
+        <ul class="list-disc list-inside space-y-2 text-sm">
+          <li>Symbol of Abundance: Adi Lakshmi signifies unlimited wealth and prosperity, ensuring a life free from financial and emotional stress.</li>
+          <li>Spiritual Prosperity: Alongside material wealth, Adi Lakshmi bestows spiritual richness, inner peace, and enlightenment.</li>
+          <li>Energy of Creation: She is associated with sustaining life and balance, ensuring well-being for families and communities.</li>
+          <li>Divine Feminine Power: Worshipping Adi Lakshmi honors the nurturing and protective aspects of the Goddess.</li>
+          
+          <h5 class="text-lg font-semibold">Importance of Adi Lakshmi Puja</h5>
+          <ul class="list-disc list-inside space-y-2 text-sm">
+            <li>Brings Financial Stability: The puja helps overcome financial struggles and instills confidence in managing resources.</li>
+            <li>Improves Relationships: Strengthens bonds within families and promotes harmony at home.</li>
+            <li>Dispels Negativity: The puja removes obstacles and negative energies that hinder personal or professional growth.</li>
+            <li>Attracts Good Fortune: It is believed to open pathways for opportunities and success.</li>
+            <li>Supports Spiritual Aspirations: Facilitates self-awareness and spiritual elevation.</li>
+
+            <h5 class="text-lg font-semibold">How to Perform Adi Lakshmi Puja</h5>
+            <h6 class="text-sm font-semibold">Preparations:</h6>
+            <ul class="list-disc list-inside space-y-2 text-sm">
+              <li>Clean the puja area and purify it with water and incense.</li>
+              <li>Place a picture or idol of Adi Lakshmi on a decorated altar.</li>
+              <li>Arrange offerings such as flowers, fruits, sweets, and coins.</li>
+
+
+        <blockquote class="mt-4 border-l-4 border-yellow-500 pl-4 italic text-red-600 font-semibold"> <h5 class="text-lg font-semibold text-black ">Rituals:</h5> <p class="text-black">chant this Mantra</p> ॥ ओं श्रीं ह्रीं क्लीं आदि लक्ष्म्यै नमः ॥</blockquote>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 mt-4 gap-6">
+      <div class="md:col-span-3 glass soft-border rounded-2xl p-6 glass rounded-2xl p-6" data-aos="fade-left">
+
+        <h3 class="text-3xl font-extrabold gold-text text-center mb-3">Benefits</h3>
+        <ul class="list-disc list-inside space-y-2 text-sm">
+          <li class="font-medium mt-4">Material Prosperity: Ensures wealth, abundance, and financial security.</li>
+          <li class="font-medium mt-4">Emotional Well-being: Promotes happiness and mental peace.</li>
+          <li class="font-medium mt-4">Health and Longevity: Protects against illness and ensures vitality.</li>
+          <li class="font-medium mt-4">Success in Endeavors: Helps overcome challenges in career, business, and education.</li>
+          <li class="font-medium mt-4">Spiritual Growth: Enhances devotion, focus, and connection with divine energies.</li>
+          
+        </ul>
+
+      </div>
+    </div>
+
+
+    <div class="grid md:grid-cols-3 mt-4 gap-6">
+      <div class="md:col-span-3 glass soft-border rounded-2xl p-6 glass rounded-2xl p-6" data-aos="fade-left">
+
+        <h3 class="text-3xl font-extrabold text-center gold-text mb-3">Puja Process</h3>
+        <ul class="list-disc list-inside space-y-2 text-sm">
+          <li class="font-medium mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+          <li class="font-medium mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum!</li>
+          <li class="font-medium mt-4">Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+          <li class="font-medium mt-4">Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+          <li class="font-medium mt-4">Lorem ipsum dolor sit amet consectetur adipisicing..</li>
+          
+        </ul>
+
+      </div>
+    </div>
+
+
+    <div class="grid md:grid-cols-3 mt-4 gap-6">
+      <div class="md:col-span-3 glass soft-border rounded-2xl p-6 glass rounded-2xl p-6" data-aos="fade-left">
+
+        <h3 class="text-3xl font-extrabold text-center gold-text mb-3">FAQ</h3>
+        <details class="border rounded-lg mb-2 p-3 bg-white/70">
+          <summary class="cursor-pointer font-semibold">Who should perform Adi Lakshmi Puja?</summary>
+          <p class="mt-2 text-sm">Anyone seeking prosperity, peace, and spiritual growth can perform this puja, irrespective of gender or age.
+          </p>
+        </details>
+        <details class="border rounded-lg mb-2 p-3 bg-white/70">
+          <summary class="cursor-pointer font-semibold">When should Adi Lakshmi Puja be performed?</summary>
+          <p class="mt-2 text-sm">Fridays, full moon days, and the months of Sharad and Kartika are especially auspicious.
+          </p>
+        </details>
+        <details class="border rounded-lg mb-2 p-3 bg-white/70">
+          <summary class="cursor-pointer font-semibold">What offerings are ideal for Adi Lakshmi?</summary>
+          <p class="mt-2 text-sm">Lotus flowers, cow ghee lamps, sweets, and gold or silver coins are considered auspicious.          </p>
+        </details>
+        <details class="border rounded-lg mb-2 p-3 bg-white/70">
+        <summary class="cursor-pointer font-semibold">What mantras are powerful for Adi Lakshmi?</summary>
+          <p class="mt-2 text-sm font-semibold text-red-500">॥ ओं श्रीं ह्रीं क्लीं आदि लक्ष्म्यै नमः ॥</p>
+        </details>
+        <details class="border rounded-lg mb-2 p-3 bg-white/70">
+        <summary class="cursor-pointer font-semibold"> Can the puja be done at home?  </summary>
+        <p class="mt-2 text-sm">Yes, Adi Lakshmi Puja can be performed at home with devotion and proper rituals.</p>
+      </details>
+
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 mt-4 gap-6">
+      <div class="md:col-span-3 glass soft-border rounded-2xl p-6 glass rounded-2xl p-6" data-aos="fade-left">
+
+        <h3 class="text-3xl font-extrabold text-center gold-text mb-3">Reviews</h3>
+        <div class="bg-white rounded-xl border p-4 mb-3">
+          <p class="font-semibold">Arpit Pandey – ⭐⭐⭐⭐⭐</p>
+          <p class="text-sm">Very powerful experience. Felt protected and calm.</p>
+        </div>
+        <div class="bg-white rounded-xl border p-4">
+          <p class="font-semibold">Harsh Singh – ⭐⭐⭐⭐⭐</p>
+          <p class="text-sm">Quick arrangement and great guidance by priest.</p>
+        </div>
+
+          <div class="bg-white mt-2 rounded-xl border p-4">
+            <p class="font-semibold">Diksha  – ⭐⭐⭐</p>
+            <p class="text-sm">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+
+            <div class="bg-white mt-2 rounded-xl border p-4">
+              <p class="font-semibold"> vartika – ⭐⭐⭐⭐</p>
+              <p class="text-sm">Lorem ipsum dolor sit amet.</p>
+            </div>
+
+      </div>
+    </div>
+
+   
+  </section>
+
+  <!-- Share Popup -->
+  <div id="sharePopup" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl shadow-2xl p-6 w-96 border-t-4 border-yellow-500 animate-[fadeSlide_.4s_ease]">
+      <h2 class="text-xl font-bold text-yellow-700 mb-3">Share this Puja </h2>
+      <div class="flex items-center mb-4">
+        <input id="pageLink" type="text" value="http://127.0.0.1:5500/index.html" readonly class="flex-1 border rounded-l-lg px-3 py-2 text-sm">
+        <button onclick="copyLink()" class="bg-yellow-600 text-white px-4 py-2 rounded-r-lg">Copy</button>
+      </div>
+      <div class="grid grid-cols-3 gap-3 text-center text-sm">
+        <a target="_blank" href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/index.html" class="border border-green-500 text-green-600 py-2 rounded-lg hover:bg-green-500 hover:text-white transition">WhatsApp</a>
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/index.html" class="border border-blue-500 text-blue-600 py-2 rounded-lg hover:bg-blue-500 hover:text-white transition">Facebook</a>
+        <a target="_blank" href="https://www.instagram.com/" class="border border-pink-500 text-pink-600 py-2 rounded-lg hover:bg-pink-500 hover:text-white transition">Instagram</a>
+      </div>
+      <button id="closePopup" class="mt-5 w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2.5 rounded-lg font-semibold">Close</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm px-4 py-2 rounded-full shadow-xl">Copied!</div>
+
+
+  <!-- Related Carousel Section -->
+  <section class="max-w-7xl mx-auto px-6 mt-12 relative">
+    <h2 class="text-3xl font-bold mb-4 text-3xl font-extrabold gold-text mb-6" data-aos="fade-right">You May Also Like</h2>
+    
+   
+    <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 bg-yellow-500 text-white px-3 py-2 rounded-full shadow hover:bg-yellow-600 z-10">
+      ◀
+    </button>
+    
+    
+    <div id="carousel" class="flex overflow-x-auto space-x-6 scrollbar-hide scroll-smooth flex space-x-6 overflow-x-auto scroll-smooth pb-4" data-aos="fade-up">
+      
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/main iamge.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Bagalmukhi Puja</p>
+        <p class="text-red-600 font-semibold">₹1150</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/m2.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Sawan Special Vedic Yagya 2025 – In Kashi</p>
+        <p class="text-red-600 font-semibold"> 📆 Saturday, 9 August 2025,</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y3.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold"> Adi Lakshmi Puja (Ashta-Lakshmi)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+     
+  
+      
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y4.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Dhana Lakshmi Puja (Ashta-Lakshmi)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y5.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Dhanya Lakshmi Puja (Ashta-Lakshmi)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y6.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Gaja Lakshmi Puja (Ashta-Lakshmi)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y7.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Santana Lakshmi Puja (Ashta-Lakshmi)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y8.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Dhairya Lakshmi Puja (Ashta-Lakshmi)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y9.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Vijaya Lakshmi Puja (Ashta-Lakshmi)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y10.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Vidya Lakshmi Puja (Ashta-Lakshmi)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y11.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Surya Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y12.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Chandra Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y13.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Mangal Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y14.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Budh Puja (Mercury Puja)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y15.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Guru Puja (Jupiter Puja)</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y16.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Shukra Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y17.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Shani Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y18.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Rahu Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y19.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Ketu Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y20.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Navagraha Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y21.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Vishnu Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+
+      <div class="min-w-[250px] border rounded-xl p-3 text-center shadow-md">
+        <img src="images/y22.jpg" class="rounded-lg mx-auto w-64 h-64 object-cover transition-transform duration-500 hover:scale-110">
+        <p class="mt-2 font-bold">Surya Puja</p>
+        <p class="text-red-600 font-semibold">₹5100.00</p>
+        <button class="mt-2 bg-yellow-500 px-4 py-1 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-mdc hover:bg-yellow-700 text-white">Book Now</button>
+      </div>
+      
+    </div>
+    
+    
+    <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 bg-yellow-500 text-white px-3 py-2 rounded-full shadow hover:bg-yellow-600 z-10">
+      ▶
+    </button>
+  </section>
+
+
+   <!-- ✅ AOS JS -->
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+     AOS.init({
+       duration: 1000,  // animation speed
+       once: true,      // ek hi bar animate hoga
+       easing: "ease-in-out"
+     });
+   </script>
+
+  <script>
+    // ---------- Gallery (image + background video)
+    const mainDisplay = document.getElementById('mainDisplay');
+    const mainImageEl = document.getElementById('mainImage');
+    const thumbs = Array.from(document.querySelectorAll('#thumbRow .thumb'));
+
+    function showImage(src) {
+      mainDisplay.innerHTML = `<img src="${src}" class="w-full h-full object-cover" />`;
+    }
+
+    function showVideo(src) {
+      mainDisplay.innerHTML = `
+        <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+          <source src="${src}" type="video/mp4" />
+        </video>`;
+    }
+
+
+    document.querySelectorAll('.thumb').forEach(el => {
+    el.addEventListener('click', () => {
+      if (el.tagName === 'IMG') {
+        document.getElementById('mainDisplay').innerHTML = 
+          `<img src="${el.src}" class="w-full h-full object-cover rounded-2xl"/>`;
+      } else if (el.tagName === 'VIDEO') {
+        document.getElementById('mainDisplay').innerHTML = 
+          `<video autoplay loop muted playsinline class="w-full h-full object-cover rounded-2xl">
+             <source src="${el.src}" type="video/mp4">
+           </video>`;
+      }
+    });
+  });
+
+    // ---------- Share popup
+    const shareBtn = document.getElementById('shareBtn');
+    const sharePopup = document.getElementById('sharePopup');
+    const closePopup = document.getElementById('closePopup');
+
+    shareBtn?.addEventListener('click', ()=> sharePopup.classList.remove('hidden'));
+    closePopup?.addEventListener('click', ()=> sharePopup.classList.add('hidden'));
+    sharePopup?.addEventListener('click', (e)=>{ if(e.target===sharePopup) sharePopup.classList.add('hidden') });
+
+    // ---------- Copy link + toast
+    function copyLink(){
+      const input = document.getElementById('pageLink');
+      input.select();
+      input.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(input.value).then(()=>{
+        const t=document.getElementById('toast');
+        t.textContent='Link copied to clipboard';
+        t.classList.remove('hidden');
+        setTimeout(()=>t.classList.add('hidden'),1500);
+      });
+    }
+    window.copyLink = copyLink;
+
+    // ---------- Favorite toggle
+    const favBtn = document.getElementById('favBtn');
+    favBtn?.addEventListener('click', ()=>{
+      favBtn.classList.toggle('text-red-600');
+      const t=document.getElementById('toast');
+      t.textContent = favBtn.classList.contains('text-red-600') ? 'Added to favorites' : 'Removed from favorites';
+      t.classList.remove('hidden');
+      setTimeout(()=>t.classList.add('hidden'),1200);
+    });
+
+    // ---------- Offer countdown (to 20 Sep 2025 23:59:59 local)
+    function updateCountdown() {
+    const end = new Date("Nov 20, 2025 23:59:59").getTime();
+    const now = new Date().getTime();
+    const diff = end - now;
+
+    if (diff < 0) {
+      document.getElementById("countdown").innerText = "Offer ended";
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerText = 
+      `${days}d ${hours}h ${mins}m ${secs}s left`;
+  }
+  setInterval(updateCountdown, 1000);
+
+    // ---------- Quick Zoom modal (shows current media large)
+    const quickZoom = document.getElementById('quickZoom');
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomContainer = document.getElementById('zoomContainer');
+    const closeZoom = document.getElementById('closeZoom');
+
+    quickZoom?.addEventListener('click', ()=>{
+      zoomModal.classList.remove('hidden');
+      // capture what's inside mainDisplay and mirror in zoom
+      zoomContainer.innerHTML = mainDisplay.innerHTML.replace('autoplay', 'autoplay');
+    });
+    closeZoom?.addEventListener('click', ()=> zoomModal.classList.add('hidden'));
+    zoomModal?.addEventListener('click', (e)=>{ if(e.target===zoomModal) zoomModal.classList.add('hidden') });
+
+    // ---------- Book Now basic validation
+    const bookBtn = document.getElementById('bookBtn');
+    bookBtn?.addEventListener('click', ()=>{
+      const name = document.getElementById('fName');
+      const phone = document.getElementById('fPhone');
+      const email = document.getElementById('fEmail');
+      if(!name.value.trim() || !phone.value.trim() || !email.value.trim()){
+        const t=document.getElementById('toast');
+        t.textContent='Please fill Name, Phone & Email';
+        t.classList.remove('hidden');
+        setTimeout(()=>t.classList.add('hidden'),1500);
+        [name,phone,email].forEach(el=> el.classList.add('ring-2','ring-red-400'));
+        return;
+      }
+      const t=document.getElementById('toast');
+      t.textContent='✅ Booking details received';
+      t.classList.remove('hidden');
+      setTimeout(()=>t.classList.add('hidden'),1500);
+    });
+
+    const carousel = document.getElementById("carousel");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+  
+    let scrollAmount = 300; 
+    let autoScroll;
+  
+    
+    nextBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+    prevBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+  
+   
+    function startAutoScroll() {
+      autoScroll = setInterval(() => {
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+          carousel.scrollTo({ left: 0, behavior: "smooth" }); 
+        } else {
+          carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      }, 3000);
+    }
+  
+    function stopAutoScroll() {
+      clearInterval(autoScroll);
+    }
+  
+    carousel.addEventListener("mouseenter", stopAutoScroll);
+    carousel.addEventListener("mouseleave", startAutoScroll);
+  
+    startAutoScroll();
+
+  </script>
+</body>
+</html>
